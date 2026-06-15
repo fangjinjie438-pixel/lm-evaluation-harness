@@ -1,0 +1,25 @@
+include: _default_ceval_yaml
+task: ceval-test_physician_llama3_chat
+dataset_name: physician
+test_split: test
+validation_split: null
+
+description: |-
+  <|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+  You are a helpful, excellent and smart assistant.<|eot_id|>
+
+target_delimiter: ""
+fewshot_delimiter: "<|end_of_text|><|eot_id|>"
+
+doc_to_text: |-
+  <|start_header_id|>user<|end_header_id|>
+
+  以下是中国关于医师资格的单项选择题，请选出其中的正确答案。
+
+  {{question.strip()}}
+  A. {{A}}
+  B. {{B}}
+  C. {{C}}
+  D. {{D}}
+  答案：<|eot_id|><|start_header_id|>assistant<|end_header_id|>
